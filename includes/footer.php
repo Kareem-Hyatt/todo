@@ -1,7 +1,15 @@
     
-    <div id='footer' class="bg-dark text-white fixed-bottom">
-      <p class="text-center">Copyright &copy; - ToDo List by Kareem Hyatt <?php echo date('y'); ?></p>
-    </div>
+    <!-- Footer -->
+    <footer class="page-footer font-small dark fixed-bottom">
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">&copy; 2020 Copyright:
+        <p>ToDo by Kareem Hyatt</p>
+      </div>
+      <!-- Copyright -->
+
+    </footer>
+    <!-- Footer -->
 
     </div>
     
