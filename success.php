@@ -3,7 +3,7 @@
     require_once 'includes/header.php';
     require_once 'db/conn.php';
 
-    if(isset($_POST['create'])){
+    if(isset($_POST['submit'])){
 
         $username = $_POST['username'];
         $email = $_POST['email'];
@@ -13,15 +13,13 @@
 
         if($isSuccess){
             // include 'includes/successmessage.php';
-            echo "<h1 class='text-center text-success'>You have been Successfully REGISTERED!</h1>";
+            echo "<h1 class='text-center text-success'>Success!!!</h1>";
         }
         else{
             // include 'includes/errormessage.php';   
-        echo "<h1 class='text-center text-danger'>There was an ERROR in processing!</h1>";
-
+        echo "<h1 class='text-center text-danger'>ERROR, Please retry!!!</h1>";
         }
     }
 ?>
-
 
 <?php require_once 'includes/footer.php'; ?>
