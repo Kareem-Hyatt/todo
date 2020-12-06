@@ -28,20 +28,40 @@
             }
         } 
 
-        // public function getAttendees(){
-        //     try
-        //     {  
-        //          $sql = "SELECT * FROM attendee a INNER JOIN specialties s ON a.specialty_id = s.specialty_id";
-        //         $result = $this->db->query($sql);
+        public function insertListItem($name, $user_id){
+            try 
+            {
+                $sql = "INSERT INTO `lists`(`name`, `users_id`) VALUES (:name,:user_id)";
+                                
+                $stmt = $this->db->prepare($sql);
 
-        //         return $result;
-        //     }
-        //     catch (PDOException $e) 
-        //     {
-        //         echo $e->getMessage();
-        //         return false;
-        //     }
-        // }
+                $stmt->bindparam(':name',$name);
+                $stmt->bindparam(':user_id',$user_id);
+                $stmt->execute();
+
+                return true;
+            }
+            catch (PDOException $e) {
+                echo $e->getMessage();
+                return false;
+            }
+        } 
+
+        public function getList(){
+            try
+            {
+                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = 1";  
+                //  $sql = "SELECT * FROM users u INNER JOIN lists l ON l.users_id = l.users_id WHERE username = :username";
+                $result = $this->db->query($sql);
+
+                return $result;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
 
         // public function getSpecialties(){
         //     try
