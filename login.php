@@ -1,13 +1,30 @@
 <?php
     $title = 'Login';
     require_once 'includes/header.php';
+    require_once 'db/conn.php';
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+      $username = strtolower(trim($_POST['username']));
+      $password = $_POST['password'];
+      $new_password = md5($password.$username);
+
+      $result = $user->getUser($username, $new_password);
+      if(!$result){
+        echo 'Error!!!';
+      }else{
+        $_SESSION['username'] = $username;
+        $_SESSION['id'] = $result['id'];
+        header("Location: mylist.php");
+      }
+    }
 ?>
 
 <div class="login-page">
   <div class="form">
-    <form method='post' action='success.php'>
+    <form method='post' action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
       <div class="form-group">
-          <input required type="text" class="form-control" id="username" placeholder="username" name="username">
+          <input required type="text" class="form-control" id="username" placeholder="username" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
       </div>
       <div class="form-group">
           <input required type="text" class="form-control" id="password" name="password" placeholder="password">

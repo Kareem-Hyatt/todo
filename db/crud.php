@@ -8,25 +8,25 @@
             $this->db = $conn;
         }
 
-        public function insertUsers($username, $email, $password){
-            try 
-            {
-                $sql = "INSERT INTO `users` (`username`, `email`, `password`) VALUES (:username, :email, :password)";
+        // public function insertUsers($username, $email, $password){
+        //     try 
+        //     {
+        //         $sql = "INSERT INTO `users` (`username`, `email`, `password`) VALUES (:username, :email, :password)";
                                 
-                $stmt = $this->db->prepare($sql);
+        //         $stmt = $this->db->prepare($sql);
 
-                $stmt->bindparam(':username',$username);
-                $stmt->bindparam(':email',$email);
-                $stmt->bindparam(':password',$password);
-                $stmt->execute();
+        //         $stmt->bindparam(':username',$username);
+        //         $stmt->bindparam(':email',$email);
+        //         $stmt->bindparam(':password',$password);
+        //         $stmt->execute();
 
-                return true;
-            }
-            catch (PDOException $e) {
-                echo $e->getMessage();
-                return false;
-            }
-        } 
+        //         return true;
+        //     }
+        //     catch (PDOException $e) {
+        //         echo $e->getMessage();
+        //         return false;
+        //     }
+        // } 
 
         public function insertListItem($user_id){
             try 
@@ -56,6 +56,9 @@
 
                 $stmt->bindparam(':user_id', $user_id);
                 // $stmt->bindparam(':name', $name);
+
+                $stmt->execute();
+                $result = $stmt->fetch();
 
 
                 return $result;
