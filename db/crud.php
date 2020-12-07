@@ -49,7 +49,7 @@
         public function getList($user_id){
             try
             {
-                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = :user_id";  //FIX THIS KAREEM
+                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = 1";  //FIX THIS KAREEM
                 $result = $this->db->query($sql);
 
                 $stmt = $this->db->prepare($sql);

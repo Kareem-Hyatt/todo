@@ -38,8 +38,23 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
+            <?php
+              if(!isset($_SESSION['id'])){
+            ?>
             <a class="nav-link" href="login.php">Login</a>
-          </li>
+            <?php  
+              }else{
+                ?>
+              <a class="nav-link" href="#"><span>Hello <?php echo $_SESSION['username']?></span></a>
+                
+                <?php
+              
+          '</li>
+          <li>
+            <a class="nav-link" href="logout.php">Logout</a>
+          </li>';
+        }
+        ?>
         </ul>
       </div>
     </nav>

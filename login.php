@@ -15,7 +15,7 @@
       }else{
         $_SESSION['username'] = $username;
         $_SESSION['id'] = $result['id'];
-        header("Location: mylist.php");
+        header("Location: about.php");
       }
     }
 ?>
@@ -24,7 +24,7 @@
   <div class="form">
     <form method='post' action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>">
       <div class="form-group">
-          <input required type="text" class="form-control" id="username" placeholder="username" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
+          <input required type="text" class="form-control" name= "username" id="username" placeholder="username" value="<?php if($_SERVER['REQUEST_METHOD'] == 'POST') echo $_POST['username']; ?>">
       </div>
       <div class="form-group">
           <input required type="text" class="form-control" id="password" name="password" placeholder="password">
