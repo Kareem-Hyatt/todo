@@ -27,6 +27,9 @@
             <a class="nav-link" href="login.php">Login</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="mylist.php">My List</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="about.php">About</a>
           </li>
         </ul>

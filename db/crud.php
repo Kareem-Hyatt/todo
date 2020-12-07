@@ -28,14 +28,13 @@
             }
         } 
 
-        public function insertListItem($name, $user_id){
+        public function insertListItem($user_id){
             try 
             {
                 $sql = "INSERT INTO `lists`(`name`, `users_id`) VALUES (:name,:user_id)";
                                 
                 $stmt = $this->db->prepare($sql);
 
-                $stmt->bindparam(':name',$name);
                 $stmt->bindparam(':user_id',$user_id);
                 $stmt->execute();
 
@@ -47,12 +46,17 @@
             }
         } 
 
-        public function getList(){
+        public function getList($user_id){
             try
             {
-                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = 1";  
-                //  $sql = "SELECT * FROM users u INNER JOIN lists l ON l.users_id = l.users_id WHERE username = :username";
+                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = :user_id";  //FIX THIS KAREEM
                 $result = $this->db->query($sql);
+
+                $stmt = $this->db->prepare($sql);
+
+                $stmt->bindparam(':user_id', $user_id);
+                // $stmt->bindparam(':name', $name);
+
 
                 return $result;
             }
@@ -98,32 +102,30 @@
         //     }
         // }
 
-        // public function editAttendee($id, $fname, $lname, $dob, $email, $contact, $specialty){
-        //     try
-        //     {
-        //         $sql = "UPDATE attendee SET firstname=:fname,lastname=:lname,dateofbirth=:dob,
-        //         emailaddress=:email,contactnumber=:contact,specialty_id=:specialty WHERE attendee_id = :id";
+        public function editList($id, $name, $user_id){
+            try
+            {
+                $sql = "UPDATE `lists` SET `name`= :name WHERE :user_id";    
+                // $sql = "UPDATE attendee SET firstname=:fname,lastname=:lname,dateofbirth=:dob,
+                // emailaddress=:email,contactnumber=:contact,specialty_id=:specialty WHERE attendee_id = :id";
                 
-        //         $stmt = $this->db->prepare($sql);
+                $stmt = $this->db->prepare($sql);
 
-        //         $stmt->bindparam(':id',$id);
-        //         $stmt->bindparam(':fname',$fname);
-        //         $stmt->bindparam(':lname',$lname);
-        //         $stmt->bindparam(':dob',$dob);
-        //         $stmt->bindparam(':email',$email);
-        //         $stmt->bindparam(':contact',$contact);
-        //         $stmt->bindparam(':specialty',$specialty);
+                $stmt->bindparam(':id',$id);
+                $stmt->bindparam(':name',$name);
+                $stmt->bindparam(':user_id',$user_id);
 
-        //         $stmt->execute();
 
-        //         return true;
-        //     }
-        //     catch (PDOException $e) 
-        //     {
-        //         echo $e->getMessage();
-        //         return false;
-        //     }
-        // }
+                $stmt->execute();
+
+                return true;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
 
         // public function deleteAttendee($id){
         //     try

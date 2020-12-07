@@ -3,30 +3,30 @@
     require_once 'includes/header.php';
     require_once 'db/conn.php';
 
-    $results = $crud->getList();
+    $results = $crud->getList($user_id);
 ?>
 
     <table class="table">
         <tr>
-            <!-- <th>#</th> -->
             <th>List Item</th>
-            <!-- <th>Last Name</th>
-            <th>Specialty</th> -->
-            <th>User</th>
+            <th></th>
         </tr>
         <?php  
             while($r = $results->fetch(PDO::FETCH_ASSOC)){  
         ?>
             <tr>
                 <td><?php echo $r['name'] ?></td>
-                <td><?php echo $r['username'] ?></td>
-                <!-- <td><?php echo $r['lastname'] ?></td>
-                <td><?php echo $r['name'] ?></td> -->
                 <td>
-                    <!-- <a href = "view.php?id=<?php echo $r['attendee_id'] ?>" class = "btn btn-primary">View</a>
-                    <a href = "edit.php?id=<?php echo $r['attendee_id'] ?>" class = "btn btn-warning">Edit</a>
-                    <a onclick = "return confirm('Are you sure you want to delete this record?');" 
-                    href = "delete.php?id=<?php echo $r['attendee_id'] ?>" class = "btn btn-danger">Delete</a> -->
+                    <div class="btn-group dropup">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            options
+                        </button>
+                        <div class="dropdown-menu">
+                            <!-- Dropdown menu links -->
+                            <a href = "editlist.php?user_id=<?php echo $r['user_id'] ?>" class = "btn btn-light">Edit</a>
+                            <!-- <a href = "delete.php?user_id=<?php echo $r['user_id'] ?>" class = "btn btn-light">Delete</a> -->
+                        </div>
+                    </div>                    
                 </td>
             </tr>
         <?php
