@@ -15,7 +15,7 @@
       }else{
         $_SESSION['username'] = $username;
         $_SESSION['id'] = $result['id'];
-        header("Location: about.php");
+        header("Location: mylist.php");
       }
     }
 ?>

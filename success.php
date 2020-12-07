@@ -9,7 +9,7 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        $isSuccess = $crud->insertUsers($username, $email, $password);
+        $isSuccess = $user->insertUsers($username, $email, $password);
 
         if($isSuccess){
             // include 'includes/successmessage.php';

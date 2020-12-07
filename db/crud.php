@@ -46,16 +46,15 @@
             }
         } 
 
-        public function getList($user_id){
+        public function getList($users_id){
             try
             {
-                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = 1";  //FIX THIS KAREEM
-                $result = $this->db->query($sql);
+                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = :users_id";
+                // $result = $this->db->query($sql);
 
                 $stmt = $this->db->prepare($sql);
 
-                $stmt->bindparam(':user_id', $user_id);
-                // $stmt->bindparam(':name', $name);
+                $stmt->bindparam(':users_id', $users_id);
 
                 $stmt->execute();
                 $result = $stmt->fetch();
@@ -105,10 +104,10 @@
         //     }
         // }
 
-        public function editList($id, $name, $user_id){
+        public function editList($id, $name, $users_id){
             try
             {
-                $sql = "UPDATE `lists` SET `name`= :name WHERE :user_id";    
+                $sql = "UPDATE `lists` SET `name`= :name WHERE :users_id";    
                 // $sql = "UPDATE attendee SET firstname=:fname,lastname=:lname,dateofbirth=:dob,
                 // emailaddress=:email,contactnumber=:contact,specialty_id=:specialty WHERE attendee_id = :id";
                 
@@ -116,7 +115,7 @@
 
                 $stmt->bindparam(':id',$id);
                 $stmt->bindparam(':name',$name);
-                $stmt->bindparam(':user_id',$user_id);
+                $stmt->bindparam(':users_id',$users_id);
 
 
                 $stmt->execute();
@@ -130,20 +129,20 @@
             }
         }
 
-        // public function deleteAttendee($id){
-        //     try
-        //     {
-        //         $sql = "DELETE FROM attendee WHERE attendee_id = :id";
-        //         $stmt = $this->db->prepare($sql);
-        //         $stmt->bindparam(':id',$id);
-        //         $stmt->execute();
-        //         return true;
-        //     }
-        //     catch (PDOException $e) 
-        //     {
-        //         echo $e->getMessage();
-        //         return false;
-        //     }
-        // }
+        public function deleteListItem($users_id){
+            try
+            {
+                $sql = "DELETE FROM lists WHERE users_id = :users_id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':users_id',$users_id);
+                $stmt->execute();
+                return true;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>

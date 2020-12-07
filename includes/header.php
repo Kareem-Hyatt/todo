@@ -45,16 +45,14 @@
             <?php  
               }else{
                 ?>
-              <a class="nav-link" href="#"><span>Hello <?php echo $_SESSION['username']?></span></a>
-                
-                <?php
-              
-          '</li>
+              <a class="nav-link" href="#"><span>Hello <?php echo $_SESSION['username']?></span></a>              
+          </li>
           <li>
             <a class="nav-link" href="logout.php">Logout</a>
-          </li>';
-        }
-        ?>
+          </li>
+            <?php
+              }
+            ?>
         </ul>
       </div>
     </nav>
