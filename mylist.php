@@ -3,20 +3,10 @@
     require_once 'includes/header.php';
     require_once 'db/conn.php';
 
-    // if(!isset($_GET['users_id']))
-    // {
-    //     echo "Try again</h1>";
-    //     // $users_id = $_GET['users_id'];
-    //     // $results = $crud->getList($users_id);
-    // }
-    // else
-    // {
-        // echo "kinda working";
-        $users_id = $_GET['users_id'];
-        // $result = $crud->getAttendeeDetails($id);
-        $results = $crud->getList($users_id);
-
+    $users_id = $_SESSION['id'];
     $results = $crud->getList($users_id);
+
+    // $results = $crud->getList($users_id);
 ?>
 
     <table class="table">
@@ -25,9 +15,11 @@
             <th></th>
         </tr>
         <?php  
+            echo var_dump($results);
             while($r = $results->fetch(PDO::FETCH_ASSOC)){  
         ?>
             <tr>
+                <td><?php echo $r['name'] ?></td>
                 <td>
                     <div class="btn-group dropup">
                         <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,9 +37,5 @@
            }        
         ?>
     </table>
-
-    <?php
-        // }
-    ?>
 
 <?php require_once 'includes/footer.php'; ?>

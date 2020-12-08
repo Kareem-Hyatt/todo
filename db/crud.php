@@ -49,8 +49,9 @@
         public function getList($users_id){
             try
             {
-                $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = :users_id";
-                // $result = $this->db->query($sql);
+                // $sql = "SELECT * FROM lists l INNER JOIN users u ON l.users_id = u.id where u.id = :users_id";
+                // $sql = "select * from lists where users_id = :users_id";
+                $sql = "SELECT * FROM `lists` WHERE users_id = :users_id";
 
                 $stmt = $this->db->prepare($sql);
 

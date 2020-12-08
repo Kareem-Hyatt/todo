@@ -8,6 +8,7 @@
       $username = strtolower(trim($_POST['username']));
       $password = $_POST['password'];
       $new_password = md5($password.$username);
+      $users_id = $_POST['id'];
 
       $result = $user->getUser($username, $new_password);
       if(!$result){
