@@ -1,12 +1,12 @@
 <?php
     $title = 'My List';
     require_once 'includes/header.php';
+    require_once 'includes/auth_check.php';
     require_once 'db/conn.php';
 
     $users_id = $_SESSION['id'];
     $results = $crud->getList($users_id);
 
-    // $results = $crud->getList($users_id);
 ?>
 
     <table class="table">
@@ -17,6 +17,7 @@
         <?php  
             echo var_dump($results);
             while($r = $results->fetch(PDO::FETCH_ASSOC)){  
+            // foreach(($r = $results->fetch(PDO::FETCH_ASSOC)) as $value){  
         ?>
             <tr>
                 <td><?php echo $r['name'] ?></td>
@@ -27,10 +28,15 @@
                         </button>
                         <div class="dropdown-menu">
                             <!-- Dropdown menu links -->
-                            <a href = "editlist.php?users_id=<?php echo $r['users_id'] ?>" class = "btn btn-light">Edit</a>
-                            <a href = "delete.php?users_id=<?php echo $r['users_id'] ?>" class = "btn btn-light">Delete</a>
+                            <a href = "editlist.php?users_id=7<?php echo $r['users_id'] ?>" class = "btn btn-light">Edit</a>
+                            <a href = "delete.php?users_id=7<?php echo $r['users_id'] ?>" class = "btn btn-light">Delete</a>
                         </div>
                     </div>                    
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="new-task" placeholder="Add a new item..." />
                 </td>
             </tr>
         <?php
