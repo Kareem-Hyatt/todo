@@ -45,7 +45,7 @@
             <?php  
               }else{
                 ?>
-              <a class="nav-link" href="#"><span>Hello <?php echo $_SESSION['username']?></span></a>              
+              <a class="nav-link" href="profile.php"><span>Hello <?php echo $_SESSION['username']?></span></a>              
           </li>
           <li>
             <a class="nav-link" href="logout.php">Logout</a>

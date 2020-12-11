@@ -13,7 +13,7 @@
           <input required type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" placeholder="email">
       </div>
       <div class="form-group">
-          <input required type="text" class="form-control" id="password" name="password" placeholder="password">
+          <input required type="password" class="form-control" id="password" name="password" placeholder="password">
       </div>
       <button type="submit" name='submit' class="btn btn-success">Create</button>
       <p class="message">Already registered? <a href="login.php">Login</a></p>        

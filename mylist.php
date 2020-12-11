@@ -11,11 +11,11 @@
 
     <table class="table">
         <tr>
-            <th>List Item</th>
+            <th>List Item(s)</th>
             <th></th>
         </tr>
         <?php  
-            echo var_dump($results);
+            // echo var_dump($results);
             while($r = $results->fetch(PDO::FETCH_ASSOC)){  
             // foreach(($r = $results->fetch(PDO::FETCH_ASSOC)) as $value){  
         ?>
@@ -34,14 +34,15 @@
                     </div>                    
                 </td>
             </tr>
+            <?php
+                }        
+            ?>
             <tr>
                 <td>
                     <input type="text" name="new-task" placeholder="Add a new item..." />
                 </td>
             </tr>
-        <?php
-           }        
-        ?>
+
     </table>
 
 <?php require_once 'includes/footer.php'; ?>

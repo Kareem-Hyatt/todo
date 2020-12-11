@@ -53,12 +53,12 @@
                 // $sql = "select * from lists where users_id = :users_id";
                 $sql = "SELECT * FROM `lists` WHERE users_id = :users_id";
 
-                $stmt = $this->db->prepare($sql);
+                $result = $this->db->prepare($sql);
 
-                $stmt->bindparam(':users_id', $users_id);
+                $result->bindparam(':users_id', $users_id);
 
-                $stmt->execute();
-                $result = $stmt->fetch();
+                $result->execute();
+                // $result = $stmt->fetch();
 
 
                 return $result;
