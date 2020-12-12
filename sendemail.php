@@ -8,7 +8,7 @@
 
             try {
 
-                $email = array('from' => 'kareem_hyatt@yahoo.com',
+                $email = array('from' => 'kareemhyatt_jm@gmail.com',
                 'fromName' => 'Kareem Hyatt',
                 'apikey' => $key,
                 'subject' => $subject,
