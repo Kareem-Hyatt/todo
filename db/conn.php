@@ -13,8 +13,8 @@
     $host = 'sql3.freesqldatabase.com';
     $db = 'sql3381601';
     $user = 'sql3381601';
-    $pass = 'mZKjBd5YZ3';
-    $charset = 'zZRhCZVve5';
+    $pass = 'zZRhCZVve5';
+    $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
 
