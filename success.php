@@ -5,30 +5,27 @@
     require_once 'sendemail.php';
 
     if(isset($_POST['submit'])){
-        // echo var_dump($_POST);
 
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        // $orig_file = $_FILES["avatar"]["tmp_name"];              fix file upload
-        // $ext = pathinfo($$_FILES['avatar']['tmp_name']);
-        // $target_dir = "uploads/";
-        // $unique = uniqid();
-        // $destination = "$target_dir$username$unique.$ext";
-        // move_uploaded_file($orig_file,$destination);
+        $orig_file = $_FILES["avatar"]["tmp_name"];
+        $ext = pathinfo($_FILES['avatar']['tmp_name']);
+        $target_dir = "uploads/";
+        $unique = uniqid();
+        $destination = "$target_dir$username$unique.$ext";
+        move_uploaded_file($orig_file,$destination);
 
         $isSuccess = $user->insertUsers($username, $email, $password, $destination);
 
         if($isSuccess){
-            // include 'includes/successmessage.php';
             SendEmail::SendMail($email,"ToDo Account Registered","You have successfully created you ToDo Account. Welcome to the family!!!");
             echo "<h1 class='text-center text-success'>Success!!!</h1>";
             header("Location: mylist.php");
         }
         else{
-            // include 'includes/errormessage.php';   
-        echo "<h1 class='text-center text-danger'>ERROR, Please retry!!!</h1>";
+            echo "<h1 class='text-center text-danger'>ERROR, Please retry!!!</h1>";
         }
     }
 ?>

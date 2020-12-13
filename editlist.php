@@ -23,10 +23,8 @@
     <div class="form-group">
         <input type="text" class="form-control" value = <?php echo $r['name']?> placeholder="name" name="name">
     </div>
-    
     <button type="submit" name='submit' class="btn btn-success">Save Changes</button>
 </form>
-
 <?php
     }
 ?>

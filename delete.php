@@ -1,12 +1,9 @@
 <?php 
-
-    // require_once 'includes/auth_check.php';
     require_once 'db/conn.php';
 
     if(!$_GET['id'])
     {
-        header('Location: mylist.php');          
-        // include 'includes/errormessage.php';
+        header('Location: mylist.php');
         echo 'error';
     }
     else
@@ -20,8 +17,6 @@
         }
         else{
             echo 'error';
-        // include 'includes/errormessage.php';
         }
     }
-
 ?>

@@ -4,7 +4,6 @@
     require_once 'includes/auth_check.php';
     require_once 'db/conn.php';
     $result = $user->getUserById($_SESSION['id']);
-    // echo var_dump($result);
 ?>
 
 <?php

@@ -5,7 +5,7 @@
 
 <div class="login-page">
   <div class="form">
-    <form method='post' action='success.php'>
+    <form method='post' action='success.php' enctype="multipart/form-data">
       <div class="form-group">
           <input required type="text" class="form-control" id="username" placeholder="username" name="username">
       </div>
@@ -27,7 +27,5 @@
     </form>
   </div>
 </div>
-
-
 
 <?php require_once 'includes/footer.php'; ?>

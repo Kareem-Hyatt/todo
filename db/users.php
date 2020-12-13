@@ -19,16 +19,13 @@
                 else
                 {
                     $new_password = md5($password.$username);
-                    $sql = "INSERT INTO `users` (`username`, `email`, `password`, `avatar_path`) VALUES (:username, :email, :password, :avatar_path)";
-                                    
+                    $sql = "INSERT INTO `users` (`username`, `email`, `password`, `avatar_path`) VALUES (:username, :email, :password, :avatar_path)";               
                     $stmt = $this->db->prepare($sql);
-
                     $stmt->bindparam(':username',$username);
                     $stmt->bindparam(':email',$email);
                     $stmt->bindparam(':password',$new_password);
                     $stmt->bindparam(':avatar_path',$avatar_path);
                     $stmt->execute();
-
                     return true;
                 }
             }
@@ -42,16 +39,11 @@
             try
             {
                 $sql = "SELECT * FROM users where username = :username AND password = :password"; 
-                // $result = $this->db->query($sql);
-
                 $stmt = $this->db->prepare($sql);
-
                 $stmt->bindparam(':username', $username);
                 $stmt->bindparam(':password', $password);
-
                 $stmt->execute();
                 $result = $stmt->fetch();
-
                 return $result;
             }
             catch (PDOException $e) 
@@ -65,15 +57,10 @@
             try
             {
                 $sql = "SELECT COUNT(*) AS num FROM users where username = :username"; 
-                // $result = $this->db->query($sql);
-
                 $stmt = $this->db->prepare($sql);
-
                 $stmt->bindparam(':username', $username);
-
                 $stmt->execute();
                 $result = $stmt->fetch();
-
                 return $result;
             }
             catch (PDOException $e) 
@@ -86,17 +73,11 @@
         public function getUserById($id){
             try
             {
-                // $sql = "SELECT COUNT(*) AS num FROM users where id = :id";
                 $sql = "SELECT * FROM `users` WHERE id = :id"; 
-                // $result = $this->db->query($sql);
-
                 $stmt = $this->db->prepare($sql);
-
                 $stmt->bindparam(':id', $id);
-
                 $stmt->execute();
                 $result = $stmt->fetch();
-
                 return $result;
             }
             catch (PDOException $e) 
@@ -106,5 +87,4 @@
             }
         }
     }
-
 ?>
