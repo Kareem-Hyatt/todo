@@ -15,6 +15,13 @@
       <div class="form-group">
           <input required type="password" class="form-control" id="password" name="password" placeholder="password">
       </div>
+      <div class="form-group">
+        <div class="custom-file">
+          <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar" >
+          <label class = "custom-file-label" for = "avatar">Choose Picture</label>
+          <small id = "avatar" class="form-text text-muted">Picture is Optional</small>
+        </div>
+      </div>
       <button type="submit" name='submit' class="btn btn-success">Create</button>
       <p class="message">Already registered? <a href="login.php">Login</a></p>        
     </form>

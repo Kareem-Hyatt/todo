@@ -8,7 +8,7 @@
             $this->db = $conn;
         }
 
-        public function insertUsers($username, $email, $password){
+        public function insertUsers($username, $email, $password, $avatar_path){
             try 
             {
                 $result = $this->getUserByUsername($username);
@@ -19,13 +19,14 @@
                 else
                 {
                     $new_password = md5($password.$username);
-                    $sql = "INSERT INTO `users` (`username`, `email`, `password`) VALUES (:username, :email, :password)";
+                    $sql = "INSERT INTO `users` (`username`, `email`, `password`, `avatar_path`) VALUES (:username, :email, :password, :avatar_path)";
                                     
                     $stmt = $this->db->prepare($sql);
 
                     $stmt->bindparam(':username',$username);
                     $stmt->bindparam(':email',$email);
                     $stmt->bindparam(':password',$new_password);
+                    $stmt->bindparam(':avatar_path',$avatar_path);
                     $stmt->execute();
 
                     return true;
@@ -82,6 +83,28 @@
             }
         }
 
+        public function getUserById($id){
+            try
+            {
+                // $sql = "SELECT COUNT(*) AS num FROM users where id = :id";
+                $sql = "SELECT * FROM `users` WHERE id = :id"; 
+                // $result = $this->db->query($sql);
+
+                $stmt = $this->db->prepare($sql);
+
+                $stmt->bindparam(':id', $id);
+
+                $stmt->execute();
+                $result = $stmt->fetch();
+
+                return $result;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
 
 ?>
