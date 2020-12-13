@@ -3,14 +3,15 @@
     require_once 'db/conn.php';
 
     if(isset($_POST['submit'])){
-
-        $user_id = $_POST['user_id'];
+        echo var_dump($_POST);
+        $id = $_POST['id'];
         $name = $_POST['name'];
+        $users_id = $_POST['users_id'];
 
-        $result = $crud->editList($id, $name, $user_id);
+        $result = $crud->editList($id, $name, $users_id);
 
         if($result ){
-            header('Location: mylist.php');
+            // header('Location: mylist.php');
         }
         else{
             // include 'includes/errormessage.php';

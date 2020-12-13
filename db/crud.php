@@ -28,13 +28,14 @@
         //     }
         // } 
 
-        public function insertListItem($user_id){
+        public function insertListItem($name, $user_id){
             try 
             {
                 $sql = "INSERT INTO `lists`(`name`, `users_id`) VALUES (:name,:user_id)";
                                 
                 $stmt = $this->db->prepare($sql);
 
+                $stmt->bindparam(':name',$name);
                 $stmt->bindparam(':user_id',$user_id);
                 $stmt->execute();
 
@@ -108,9 +109,8 @@
         public function editList($id, $name, $users_id){
             try
             {
-                $sql = "UPDATE `lists` SET `name`= :name WHERE :users_id";    
-                // $sql = "UPDATE attendee SET firstname=:fname,lastname=:lname,dateofbirth=:dob,
-                // emailaddress=:email,contactnumber=:contact,specialty_id=:specialty WHERE attendee_id = :id";
+                $sql = "UPDATE `lists` SET `name` = :name, users_id = :users_id WHERE `lists`.`id` = :id";
+                // $sql = "UPDATE `lists` SET `name`= :name WHERE id = :id";    
                 
                 $stmt = $this->db->prepare($sql);
 
@@ -130,12 +130,12 @@
             }
         }
 
-        public function deleteListItem($users_id){
+        public function deleteListItem($id){
             try
             {
-                $sql = "DELETE FROM lists WHERE users_id = :users_id";
+                $sql = "DELETE FROM lists WHERE id = :id";
                 $stmt = $this->db->prepare($sql);
-                $stmt->bindparam(':users_id',$users_id);
+                $stmt->bindparam(':id',$id);
                 $stmt->execute();
                 return true;
             }

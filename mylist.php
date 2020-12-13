@@ -28,8 +28,8 @@
                         </button>
                         <div class="dropdown-menu">
                             <!-- Dropdown menu links -->
-                            <a href = "editlist.php?users_id=7<?php echo $r['users_id'] ?>" class = "btn btn-light">Edit</a>
-                            <a href = "delete.php?users_id=7<?php echo $r['users_id'] ?>" class = "btn btn-light">Delete</a>
+                            <a href = "editlist.php?id=<?php echo $r['id'] ?>" class = "btn btn-light">Edit</a>
+                            <a href = "delete.php?id=<?php echo $r['id'] ?>" class = "btn btn-light">Delete</a>
                         </div>
                     </div>                    
                 </td>
@@ -39,8 +39,10 @@
             ?>
             <tr>
                 <td>
-                    <input type="text" name="new-task" placeholder="Add a new item..." />
+                    <form method='get' id = "submit-form" action='newlist.php?users_id=<?php echo $_SESSION['id'] ?>"'>
+                    <input required type="text" name="name" id= "name" class= "form-control" placeholder="Add a new item..." /></form>
                 </td>
+                <td><button type="submit" form = "submit-form" name='submit' class="btn btn-success">Save Item</button></td>
             </tr>
 
     </table>
