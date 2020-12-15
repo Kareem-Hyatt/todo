@@ -11,16 +11,14 @@
         $result = $crud->editList($id, $name, $users_id);
 
         if($result ){
-            // header('Location: mylist.php');
+            header('Location: mylist.php');
         }
         else{
-            // include 'includes/errormessage.php';
         echo 'error';
         }
     }
     else
     {
-        // include 'includes/errormessage.php';
         echo 'error';
     }
 

@@ -40,6 +40,22 @@
             }
         }
 
+        public function getListbyId($id){
+            try
+            {
+                $sql = "SELECT * FROM `lists` WHERE id = :id";
+                $result = $this->db->prepare($sql);
+                $result->bindparam(':id', $id);
+                $result->execute();
+                return $result;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+
         public function editList($id, $name, $users_id){
             try
             {

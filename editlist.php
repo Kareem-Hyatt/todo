@@ -4,20 +4,20 @@
     require_once 'includes/auth_check.php';
     require_once 'db/conn.php';
 
-    $results = $crud->getList($_SESSION['id']);
-    if(!isset($_SESSION['id']))
+    $results = $crud->getListbyId($_GET['id']);
+    if(!isset($_GET['id']))
     {
-        include 'includes/errormessage.php';
+        echo "ERROR!!!";
         header('Location: mylist.php');
     }
     else
-    {    
+    {
 ?>
-
 
 <form method='post' action='editpost.php'>
     <?php 
-    $r = $results->fetch(PDO::FETCH_ASSOC); ?>
+        $r = $results->fetch(PDO::FETCH_ASSOC);
+    ?>
     <input type='hidden' name='id' value="<?php echo $r['id']?>" ?>
     <input type='hidden' name='users_id' value="<?php echo $_SESSION['id']?>" ?>
     <div class="form-group">
