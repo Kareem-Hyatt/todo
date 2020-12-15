@@ -89,5 +89,21 @@
                 return false;
             }
         }
+
+        public function count($users_id){
+            try
+            {
+                $sql = "SELECT COUNT(*) FROM lists WHERE users_id = :users_id";
+                $result = $this->db->prepare($sql);
+                $result->bindparam(':users_id',$users_id);
+                $result->execute();
+                return $result;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>
