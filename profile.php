@@ -21,8 +21,9 @@
         <li class="list-group-item">Vestibulum at eros</li> -->
       </ul>
       <div class="card-body">
-        <a href="mylist.php" class="card-link">Your ToDo List</a>
-        <!-- <a href="#" class="card-link">Another link</a> -->
+        <!-- <a href="mylist.php" class="card-link">Your ToDo List</a> -->
+        <a href="editprofile.php" class="card-link">Edit Profile</a>
+        <a href="deleteprofile.php" onclick = "return confirm('Are you sure you want to delete this profile?');" class="card-link">Delete Profile</a>
       </div>
     </div>
 

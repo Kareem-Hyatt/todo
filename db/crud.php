@@ -90,6 +90,22 @@
             }
         }
 
+        public function deleteAllListItem($users_id){
+            try
+            {
+                $sql = "DELETE FROM lists WHERE users_id = :users_id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':users_id',$users_id);
+                $stmt->execute();
+                return true;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+
         public function count($users_id){
             try
             {

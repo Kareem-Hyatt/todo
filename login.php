@@ -8,7 +8,12 @@
       $username = strtolower(trim($_POST['username']));
       $password = $_POST['password'];
       $new_password = md5($password.$username);
-      $users_id = $_POST['id'];
+      if(isset($_POST['id'])){
+        $users_id = $_POST['id'];
+      } else {
+        echo 'Error!!!';
+        header("Location: login.php");
+      }
 
       $result = $user->getUser($username, $new_password);
       if(!$result){

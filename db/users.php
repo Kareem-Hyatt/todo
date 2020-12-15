@@ -86,5 +86,40 @@
                 return false;
             }
         }
+
+        public function editProfile($id, $username, $email, $avatar_path){
+            try
+            {
+                $sql = "UPDATE `users` SET `username`= :username, `email`= :email, `avatar_path`= :avatar_path WHERE id = :id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':id',$id);
+                $stmt->bindparam(':username',$username);
+                $stmt->bindparam(':email',$email);
+                $stmt->bindparam(':avatar_path',$avatar_path);
+                $stmt->execute();
+                return true;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
+
+        public function deleteProfile($id){
+            try
+            {
+                $sql = "DELETE FROM `users` WHERE `id` = :id";
+                $stmt = $this->db->prepare($sql);
+                $stmt->bindparam(':id',$id);
+                $stmt->execute();
+                return true;
+            }
+            catch (PDOException $e) 
+            {
+                echo $e->getMessage();
+                return false;
+            }
+        }
     }
 ?>
