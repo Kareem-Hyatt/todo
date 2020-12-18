@@ -10,7 +10,6 @@
         $id = $_POST['id'];
         $username = $_POST['username'];
         $email = $_POST['email'];
-        // $password = $_POST['password'];
 
         $orig_file = $_FILES["avatar"]["tmp_name"];
         $ext = pathinfo($_FILES['avatar']['tmp_name']);
@@ -22,7 +21,7 @@
         $isSuccess = $user->editProfile($id, $username, $email, $destination);
 
         if($isSuccess){
-            // header("Location: profile.php");
+            header("Location: profile.php");
         }
         else{
             echo "<h1 class='text-center text-danger'>ERROR, Please retry!!!</h1>";

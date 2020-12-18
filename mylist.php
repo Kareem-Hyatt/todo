@@ -25,7 +25,6 @@
                         options
                     </button>
                     <div class="dropdown-menu">
-                        <!-- Dropdown menu links -->
                         <a href = "editlist.php?id=<?php echo $r['id'] ?>" class = "btn btn-light">Edit</a>
                         <a href = "delete.php?id=<?php echo $r['id'] ?>" class = "btn btn-light">Delete</a>
                     </div>

@@ -16,12 +16,8 @@
         ', you currently have ' . $r['COUNT(*)'] . ' item(s) in your ToDo List.'?></p>
       </div>
       <ul class="list-group list-group-flush">
-        <!-- <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Vestibulum at eros</li> -->
       </ul>
       <div class="card-body">
-        <!-- <a href="mylist.php" class="card-link">Your ToDo List</a> -->
         <a href="editprofile.php" class="card-link">Edit Profile</a>
         <a href="deleteprofile.php" onclick = "return confirm('Are you sure you want to delete this profile?');" class="card-link">Delete Profile</a>
       </div>
