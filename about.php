@@ -93,7 +93,7 @@ html {
       <div class="container">
         <h2>Kareem Hyatt</h2>
         <p class="title">Designer/Student</p>
-        <p>Final year student at VTDI majoring in Software Development and Networking.</p>
+        <p>Specialization: Software Development and Networking</p>
         <p>kareem_hyatt@yahoo.com</p>
       </div>
     </div>
