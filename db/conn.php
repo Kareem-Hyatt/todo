@@ -10,10 +10,18 @@
 
     //Remote Connection freesqldatabase.com - prefered database
 
-    $host = 'sql3.freesqldatabase.com';
-    $db = 'sql3381601';
-    $user = 'sql3381601';
-    $pass = 'zZRhCZVve5';
+    // $host = 'sql3.freesqldatabase.com';
+    // $db = 'sql3381601';
+    // $user = 'sql3381601';
+    // $pass = 'zZRhCZVve5';
+    // $charset = 'utf8mb4';
+
+    //Remote Connection de4free.net - alternate database
+
+    $host = 'db4free.net';
+    $db = 'attendee_db';
+    $user = 'kareem';
+    $pass = 'I^#jmu!$XHHnMFK0yQ2a&PpeTt2s^2';
     $charset = 'utf8mb4';
 
     $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
