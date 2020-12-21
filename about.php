@@ -89,7 +89,7 @@ html {
 
 <div class="column" >
     <div class="card">
-      <img src="uploads/ProfileDefault.png" alt="Kareem" style="width:100%">
+      <img src="images/kareem.jpeg" alt="Kareem" style="width:100%">
       <div class="container">
         <h2>Kareem Hyatt</h2>
         <p class="title">Designer/Student</p>
@@ -101,7 +101,7 @@ html {
 
   <div class="column" >
     <div class="card">
-      <img src="uploads/ProfileDefault.png" alt="Kareem" style="width:100%">
+      <img src="images/trevoir.jpg" alt="Trevoir" style="width:100%">
       <div class="container">
         <h2>Trevoir Williams</h2>
         <p class="title">Lecturer</p>
